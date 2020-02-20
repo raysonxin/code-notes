@@ -15,6 +15,9 @@ public class AtomicDemo {
     static AtomicInteger atomicInteger = new AtomicInteger();
     static AtomicIntegerFieldUpdater<User> updater=AtomicIntegerFieldUpdater.newUpdater(User.class,"old");
 
+    static AtomicInteger count=new AtomicInteger(0);
+
+
     public static void main(String[] args) {
         System.out.println(atomicInteger.getAndIncrement());
         System.out.println(atomicInteger.get());

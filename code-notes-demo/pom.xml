@@ -15,6 +15,7 @@
         <module>jdbc-practise</module>
         <module>nio-practise</module>
         <module>spring-practise</module>
+        <module>rsx-rpc</module>
     </modules>
 
 
