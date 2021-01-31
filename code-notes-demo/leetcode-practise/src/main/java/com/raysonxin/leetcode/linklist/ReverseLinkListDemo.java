@@ -33,14 +33,4 @@ public class ReverseLinkListDemo {
         output(node.next);
         System.out.print(node.data + " ");
     }
-
-    static class Node {
-        public Node(int data) {
-            this.data = data;
-            next = null;
-        }
-
-        int data;
-        Node next;
-    }
 }
