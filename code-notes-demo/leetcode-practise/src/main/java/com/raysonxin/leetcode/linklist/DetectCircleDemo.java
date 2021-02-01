@@ -12,17 +12,26 @@ import java.util.Map;
 public class DetectCircleDemo {
 
     public static void main(String[] args) {
+//        int[] texts = {1, 2, 3, 4, 5, 6, 3};
+//        Node head = buildCircleLinklist(texts);
+//        Node node = detectCircleByFastSlow(head);
+//        printResult(node);
+//        node = detectCircleByExtraSpace(head);
+//        printResult(node);
+//
+//        head = buildLinklist(texts);
+//        node = detectCircleByFastSlow(head);
+//        printResult(node);
+//        node = detectCircleByExtraSpace(head);
+//        printResult(node);
+
         int[] texts = {1, 2, 3, 4, 5, 6, 3};
         Node head = buildCircleLinklist(texts);
-        Node node = detectCircle(head);
-        printResult(node);
-        node = detectCircle2(head);
+        Node node = detectCircleByFastSlow(head);
         printResult(node);
 
         head = buildLinklist(texts);
-        node = detectCircle(head);
-        printResult(node);
-        node = detectCircle2(head);
+        node = detectCircleByFastSlow(head);
         printResult(node);
     }
 
@@ -41,28 +50,41 @@ public class DetectCircleDemo {
      * @param head 链表头节点
      * @return 若为空，则不存在环；不为空，则输出为入口节点
      */
-    private static Node detectCircle(Node head) {
+    private static Node detectCircleByFastSlow(Node head) {
+        // 快慢指针从头节点开始
         Node fast = head;
         Node slow = head;
+        // 用于记录相遇点
         Node encounter = null;
+        // fast一次走两步，所以要保证next和next.next都不为空，为空就说明无环
         while (fast.next != null && fast.next.next != null) {
+            // fast走两步，slow走一步
             fast = fast.next.next;
             slow = slow.next;
+            // fast和slow一样，说明相遇了，或者fast追上slow了。
             if (fast == slow) {
+                // 记录相遇点，fast或slow都一样
                 encounter = fast;
+                // 相遇了，就退出环检测过程
                 break;
             }
         }
 
+        // 如果encounter为空，说明没有环，就不用继续找环入口了。
         if (encounter == null) {
             return encounter;
         }
+
+        // fast回到head位置
         fast = head;
+        // 只要两者不相遇，就一直走下去
         while (fast != slow) {
+            // fast每次走一步，slow每次走一步，速度一样
             fast = fast.next;
             slow = slow.next;
         }
 
+        // 相遇点，即为环入口
         return fast;
     }
 
@@ -72,17 +94,25 @@ public class DetectCircleDemo {
      * @param head 头节点
      * @return 若为空，则不存在环；不为空，则输出为入口节点
      */
-    private static Node detectCircle2(Node head) {
-        Map<NodeIdentifier, Node> nodeHashCodeMap = new HashMap<>();
+    private static Node detectCircleByExtraSpace(Node head) {
+        // 用这个map存储所有遍历过的节点
+        Map<Integer, Node> nodeHashCodeMap = new HashMap<>();
         Node node = head.next;
+        // 节点不空则继续遍历，循环停止的条件有两个：一是遍历到链表尾节点，二是发现重复元素。
         while (node != null) {
-            NodeIdentifier nodeIdentifier = new NodeIdentifier(node.hashCode(), node);
-            if (nodeHashCodeMap.containsKey(nodeIdentifier)) {
+            // 获取节点hashCode
+            Integer hashCode = node.hashCode();
+            // 判断是否曾经遍历过
+            if (nodeHashCodeMap.containsKey(hashCode)) {
+                // 如果曾经遍历过，说明有环，并且这是入口
                 return node;
             }
-            nodeHashCodeMap.put(nodeIdentifier, node);
+            // 遍历过即加入map
+            nodeHashCodeMap.put(node.hashCode(), node);
+            // 下一个
             node = node.next;
         }
+        // 走到这里，就说明没有环了。
         return null;
     }
 
@@ -120,37 +150,5 @@ public class DetectCircleDemo {
             node = next;
         }
         return head;
-    }
-
-    /**
-     * 链表唯一识别信息
-     * */
-    public static class NodeIdentifier {
-        public NodeIdentifier(int hashCode, Node node) {
-            this.hashCode = hashCode;
-            this.node = node;
-        }
-
-        public int hashCode;
-        public Node node;
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-
-            if (obj instanceof NodeIdentifier) {
-                NodeIdentifier other = (NodeIdentifier) obj;
-                return this.hashCode == other.hashCode;
-            }
-
-            return false;
-        }
-
-        @Override
-        public int hashCode() {
-            return this.hashCode;
-        }
     }
 }
