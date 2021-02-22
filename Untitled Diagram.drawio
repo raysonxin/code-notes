@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-20T02:25:44.526Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36" etag="2snkEwCdCIV_DtmEDWe2" version="14.4.2" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-02-22T03:04:41.453Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36" etag="XBXHWE1K7pSKcbz1QHgB" version="14.4.2" type="github" pages="4">
   <diagram id="YJ_Gj_0my1BFzYaCNSu6" name="Persistence">
     <mxGraphModel dx="1426" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -421,7 +421,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ufnH8VZQilm9s7VSe60f" name="Replication">
-    <mxGraphModel dx="2253" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2013" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="bFNvzNVGsXBK3tI-15Z9-0" />
         <mxCell id="bFNvzNVGsXBK3tI-15Z9-1" parent="bFNvzNVGsXBK3tI-15Z9-0" />
@@ -545,7 +545,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PYcUnv9nNcUOnM1Eqfts-4" value="runId与master的&lt;br&gt;复制ID不一致？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
+        <mxCell id="PYcUnv9nNcUOnM1Eqfts-4" value="replid与master的&lt;br&gt;复制ID不一致？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
           <mxGeometry x="1086.25" y="225" width="167.5" height="70" as="geometry" />
         </mxCell>
         <mxCell id="PYcUnv9nNcUOnM1Eqfts-10" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="bFNvzNVGsXBK3tI-15Z9-1" source="PYcUnv9nNcUOnM1Eqfts-8" target="PYcUnv9nNcUOnM1Eqfts-1">
@@ -613,7 +613,7 @@
         <mxCell id="PYcUnv9nNcUOnM1Eqfts-29" value="slave第一次主从复制？" style="rhombus;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
           <mxGeometry x="970" y="760" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="PYcUnv9nNcUOnM1Eqfts-30" value="PSYNC runId offset" style="whiteSpace=wrap;html=1;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
+        <mxCell id="PYcUnv9nNcUOnM1Eqfts-30" value="PSYNC replid offset" style="whiteSpace=wrap;html=1;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
           <mxGeometry x="982.5" y="930" width="145" height="40" as="geometry" />
         </mxCell>
         <mxCell id="PYcUnv9nNcUOnM1Eqfts-32" value="PSYNC ? -1" style="whiteSpace=wrap;html=1;" vertex="1" parent="bFNvzNVGsXBK3tI-15Z9-1">
